@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "170378575793",
+    "project_id": "arduino-car7",
+    "storage_bucket": "arduino-car7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:170378575793:android:5293cd909a784db4de0790",
+        "android_client_info": {
+          "package_name": "com.example.arduino_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAKHT_6MRibQqkwXeikXwueaB3rmtc_ZZI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
