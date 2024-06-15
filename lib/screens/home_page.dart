@@ -25,11 +25,6 @@ class HomePage extends StatelessWidget {
           ),
         ),
         ListView(children: [
-          // Container(
-          //   child: Image.asset('assets/images/welcome page.png'),
-          //   height: 350.h,
-          //   width: 400.w,
-          // ),
           SizedBox(
             height: 270.h,
           ),

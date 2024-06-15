@@ -4,26 +4,20 @@ import 'package:arduino_app/screens/arduino_page.dart';
 import 'package:arduino_app/screens/custom_form_field.dart';
 import 'package:arduino_app/screens/register_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:arduino_app/helper/dialog_utils.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class Login_page extends StatefulWidget {
   Login_page({super.key});
-
   @override
   State<Login_page> createState() => _Login_pageState();
 }
 
 class _Login_pageState extends State<Login_page> {
   var formKey = GlobalKey<FormState>();
-
   var emailController = TextEditingController();
-
   var passwordController = TextEditingController();
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -211,18 +205,3 @@ class _Login_pageState extends State<Login_page> {
     }
   }
 }
-
-// children: [
-      //   IconButton(
-      //       onPressed: () {
-      //         Navigator.of(context).pop();
-      //       },
-      //       icon: Icon(
-      //         Icons.arrow_back,
-      //         color: Colors.black,
-      //       )),
-      //   Image.asset(
-      //     'assets/images/login.png',
-      //     fit: BoxFit.cover,
-      //   ),
-      // ],

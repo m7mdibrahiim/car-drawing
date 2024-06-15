@@ -1,24 +1,18 @@
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 
-class ImageSwitch extends StatefulWidget {
+class Servo_Button_Switch extends StatefulWidget {
   @override
-  _ImageSwitchState createState() => _ImageSwitchState();
+  _Servo_Button_SwitchState createState() => _Servo_Button_SwitchState();
 }
 
-class _ImageSwitchState extends State<ImageSwitch> {
+class _Servo_Button_SwitchState extends State<Servo_Button_Switch> {
   final databaseReference = FirebaseDatabase.instance.reference();
-
-  // void _updateCarState(String direction) {
-  //   databaseReference.child('car').set(direction);
-  // }
-
   void _moveServo(int degrees) {
     databaseReference.child('car').set({'servo': degrees});
   }
 
   bool _isOn = false;
-
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -37,9 +31,6 @@ class _ImageSwitchState extends State<ImageSwitch> {
         children: [
           Image.asset(
             _isOn ? 'assets/images/button.png' : 'assets/images/buttonOff.png',
-
-            // width: 200,
-            // height: 200,
             fit: BoxFit.cover,
           ),
           Text(

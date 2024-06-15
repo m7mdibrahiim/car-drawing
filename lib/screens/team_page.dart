@@ -1,7 +1,6 @@
 import 'package:arduino_app/screens/arduino_page.dart';
 import 'package:arduino_app/screens/connection_page.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class Team_Page extends StatelessWidget {
@@ -10,45 +9,47 @@ class Team_Page extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        bottomNavigationBar: BottomAppBar(
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              IconButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, Arduino_Page.id);
-                },
-                icon: Icon(Icons.home),
-                iconSize: 45.sp,
-              ),
-              SizedBox(
-                width: 70.sp,
-              ),
-              IconButton(
-                color: Color.fromARGB(255, 206, 91, 229),
-                onPressed: () {},
-                icon: Icon(Icons.people_outline),
-                iconSize: 45.sp,
-              ),
-              SizedBox(
-                width: 70.sp,
-              ),
-              IconButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, ConnectionPage.id);
-                },
-                icon: Icon(Icons.control_camera_sharp),
-                iconSize: 45.sp,
-              ),
-            ],
-          ),
-          height: 75.h,
-          color: Colors.black87,
-          padding: EdgeInsets.symmetric(horizontal: 19),
+      bottomNavigationBar: BottomAppBar(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            IconButton(
+              onPressed: () {
+                Navigator.pushNamed(context, Arduino_Page.id);
+              },
+              icon: Icon(Icons.home),
+              iconSize: 45.sp,
+            ),
+            SizedBox(
+              width: 70.sp,
+            ),
+            IconButton(
+              color: Color.fromARGB(255, 206, 91, 229),
+              onPressed: () {},
+              icon: Icon(Icons.people_outline),
+              iconSize: 45.sp,
+            ),
+            SizedBox(
+              width: 70.sp,
+            ),
+            IconButton(
+              onPressed: () {
+                Navigator.pushNamed(context, ConnectionPage.id);
+              },
+              icon: Icon(Icons.control_camera_sharp),
+              iconSize: 45.sp,
+            ),
+          ],
         ),
-        backgroundColor: Colors.deepPurple,
-        body: Stack(fit: StackFit.expand, children: <Widget>[
+        height: 75.h,
+        color: Colors.black87,
+        padding: EdgeInsets.symmetric(horizontal: 19),
+      ),
+      backgroundColor: Colors.deepPurple,
+      body: Stack(
+        fit: StackFit.expand,
+        children: <Widget>[
           Container(
             alignment: Alignment.topLeft,
             padding: const EdgeInsets.fromLTRB(8, 28, 38, 0),
@@ -64,23 +65,8 @@ class Team_Page extends StatelessWidget {
                     image: new AssetImage('assets/images/team.png'),
                     fit: BoxFit.cover)),
           ),
-        ])
-        //
-        //
-        //
-        // Column(children: [
-        //   Expanded(
-        //     child: Container(
-        //       height: 800,
-        //       width: 600,
-        //       decoration: BoxDecoration(
-        //         image: DecorationImage(
-        //             image: AssetImage('assets/images/team.png'),
-        //             fit: BoxFit.fill),
-        //       ),
-        //     ),
-        //   ),
-        // ]),
-        );
+        ],
+      ),
+    );
   }
 }

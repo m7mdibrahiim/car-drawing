@@ -106,10 +106,6 @@ class _ConnectionPageState extends State<ConnectionPage> {
                       _pageController.animateToPage(_currentPage + 1,
                           duration: Duration(milliseconds: 300),
                           curve: Curves.ease);
-
-                      // _pageController.animateToPage(_currentPage + 1,
-                      //     duration: Duration(milliseconds: 300),
-                      //     curve: Curves.ease);
                     },
                     child: Text(
                       "Next",
@@ -163,9 +159,6 @@ class _ConnectionPageState extends State<ConnectionPage> {
                           },
                         ),
                       );
-                      // _pageController.animateToPage(_currentPage + 1,
-                      //     duration: Duration(milliseconds: 300),
-                      //     curve: Curves.ease);
                     },
                     child: Text(
                       "OK",
@@ -181,14 +174,6 @@ class _ConnectionPageState extends State<ConnectionPage> {
               ],
             ),
           ),
-          // Container(
-          //   decoration: BoxDecoration(
-          //       image: DecorationImage(
-          //           image: AssetImage(
-          //             'assets/images/Searching g.png',
-          //           ),
-          //           fit: BoxFit.fill)),
-          // ),
         ],
       ),
     );

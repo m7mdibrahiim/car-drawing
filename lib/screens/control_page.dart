@@ -1,19 +1,10 @@
-import 'dart:ffi';
-
 import 'package:arduino_app/screens/arduino_page.dart';
-import 'package:arduino_app/screens/connection_page.dart';
 import 'package:arduino_app/screens/servo_page.dart';
 import 'package:arduino_app/screens/speed_page.dart';
-import 'package:arduino_app/screens/switch_test.dart';
 import 'package:arduino_app/screens/team_page.dart';
 import 'package:firebase_database/firebase_database.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:kdgaugeview/kdgaugeview.dart';
 
 class Control_Page extends StatefulWidget {
   static String id = 'Control_Page';
@@ -28,61 +19,52 @@ class _Control_PageState extends State<Control_Page> {
   bool isPressedUp = false;
   bool isPressedDown = false;
   bool isPressedLeft = false;
-  bool isOn = false;
 
   void _handleTapDown(TapDownDetails details) {
     setState(() {
       isPressedUp = true;
-      isOn = true;
     });
   }
 
   void _handleTapUp(TapUpDetails details) {
     setState(() {
       isPressedUp = false;
-      isOn = false;
     });
   }
 
   void _handleTapDown2(TapDownDetails details) {
     setState(() {
       isPressedLeft = true;
-      isOn = true;
     });
   }
 
   void _handleTapUp2(TapUpDetails details) {
     setState(() {
       isPressedLeft = false;
-      isOn = false;
     });
   }
 
   void _handleTapDown3(TapDownDetails details) {
     setState(() {
       isPressedRight = true;
-      isOn = true;
     });
   }
 
   void _handleTapUp3(TapUpDetails details) {
     setState(() {
       isPressedRight = false;
-      isOn = false;
     });
   }
 
   void _handleTapDown4(TapDownDetails details) {
     setState(() {
       isPressedDown = true;
-      isOn = true;
     });
   }
 
   void _handleTapUp4(TapUpDetails details) {
     setState(() {
       isPressedDown = false;
-      isOn = false;
     });
   }
 
@@ -124,13 +106,7 @@ class _Control_PageState extends State<Control_Page> {
             ),
             IconButton(
               color: Color.fromARGB(255, 242, 244, 245),
-              onPressed: () {
-                // Navigator.push(context, MaterialPageRoute(
-                //   builder: (context) {
-                //     return SpeedometerScreen();
-                // },
-                //));
-              },
+              onPressed: () {},
               icon: Icon(Icons.control_camera_sharp),
               iconSize: 45.sp,
             ),
@@ -180,20 +156,9 @@ class _Control_PageState extends State<Control_Page> {
                 height: 40.h,
               ),
               SpeedMotor(),
-              // InkWell(
-              //   onLongPress: () {},
-              //   highlightColor: Colors.amber,
-              //   splashColor: Colors.amber,
-              //   overlayColor: MaterialStatePropertyAll(Colors.amber),
-              //   focusColor: Colors.amber,
-              //   hoverColor: Colors.amber,
-              //   onTap: () {},
-              //   child: Image.asset('assets/images/speed.png'),
-              // ),
               SizedBox(
                 height: 40.h,
               ),
-
               GestureDetector(
                 onTapDown: (details) {
                   setState(() {
@@ -242,9 +207,6 @@ class _Control_PageState extends State<Control_Page> {
               ),
               Row(
                 children: [
-                  // SizedBox(
-                  //   width: 25.sp,
-                  // ),
                   Spacer(),
                   GestureDetector(
                     onTapDown: (details) {
@@ -262,7 +224,6 @@ class _Control_PageState extends State<Control_Page> {
                         });
                       }
                     },
-
                     onLongPressUp: () {
                       setState(() {
                         isPressedLeft = !isPressedLeft;
@@ -278,10 +239,6 @@ class _Control_PageState extends State<Control_Page> {
                         });
                       }
                     },
-                    // onTapDown: _handleTapDown2,
-                    // onTapUp: _handleTapUp2,
-                    // onLongPressDown: (details) => _updateCarState(3),
-                    // onLongPressUp: () => _updateCarState(0),
                     child: Stack(
                       children: [
                         Image.asset(
@@ -297,15 +254,8 @@ class _Control_PageState extends State<Control_Page> {
                       ],
                     ),
                   ),
-                  // SizedBox(
-                  //   width: 10.sp,
-                  // ),
                   Spacer(),
-                  ImageSwitch(),
-
-                  // SizedBox(
-                  //   width: 10.sp,
-                  // ),
+                  Servo_Button_Switch(),
                   Spacer(),
                   GestureDetector(
                     onTapDown: (details) {
@@ -323,7 +273,6 @@ class _Control_PageState extends State<Control_Page> {
                         });
                       }
                     },
-
                     onLongPressUp: () {
                       setState(() {
                         isPressedRight = !isPressedRight;
@@ -339,10 +288,6 @@ class _Control_PageState extends State<Control_Page> {
                         });
                       }
                     },
-                    // onTapDown: _handleTapDown3,
-                    // onTapUp: _handleTapUp3,
-                    // onLongPressDown: (details) => _updateCarState(4),
-                    // onLongPressUp: () => _updateCarState(0),
                     child: Stack(
                       children: [
                         Image.asset(
@@ -359,11 +304,6 @@ class _Control_PageState extends State<Control_Page> {
                     ),
                   ),
                   Spacer(),
-
-                  // Container(
-
-                  //   child: Image.asset('assets/images/right.png'),
-                  // ),
                 ],
               ),
               GestureDetector(
@@ -382,7 +322,6 @@ class _Control_PageState extends State<Control_Page> {
                     });
                   }
                 },
-
                 onLongPressUp: () {
                   setState(() {
                     isPressedDown = !isPressedDown;
@@ -398,10 +337,6 @@ class _Control_PageState extends State<Control_Page> {
                     });
                   }
                 },
-                // onTapDown: _handleTapDown4,
-                // onTapUp: _handleTapUp4,
-                // onLongPressDown: (details) => _updateCarState(2),
-                // onLongPressUp: () => _updateCarState(0),
                 child: Stack(
                   children: [
                     Image.asset(
@@ -420,9 +355,6 @@ class _Control_PageState extends State<Control_Page> {
               SizedBox(
                 height: 5.sp,
               )
-              // Container(
-              //   child: Image.asset('assets/images/down.png'),
-              // ),
             ],
           ),
         ],
